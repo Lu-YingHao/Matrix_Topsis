@@ -63,7 +63,7 @@ def topsis(matrix, weights, types):
     for i, typ in enumerate(types):
         if typ == 'min':  # 极小型转极大型
             matrix = min_to_max(matrix, i)
-        elif typ == 'mid':  # 中间型转极大型，假设理想值为中位数
+        elif typ == 'mid': 
             best_value = np.median(matrix[:, i])
             matrix = mid_to_max(matrix, i, best_value)
         elif typ == 'interval':
