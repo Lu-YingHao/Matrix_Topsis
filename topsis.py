@@ -2,10 +2,9 @@ import numpy as np
 
 # 极小型指标的正向化
 def min_to_max(matrix, column):
-    min_value = matrix[:, column].min()
-    if min_value == 0:
-        min_value = 1e-10  # 避免除以0
-    matrix[:, column] = min_value / matrix[:, column]
+    max_value = matrix[:, column].max()
+
+    matrix[:, column] = max_value - matrix[:, column]
     return matrix
 
 # 中间型指标的正向化
