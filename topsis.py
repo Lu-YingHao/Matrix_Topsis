@@ -66,7 +66,7 @@ def topsis(matrix, weights, types):
         elif typ == 'mid':  # 中间型转极大型，假设理想值为中位数
             best_value = np.median(matrix[:, i])
             matrix = mid_to_max(matrix, i, best_value)
-        elif typ == 'interval':  # 区间型转极大型，假设理想区间为[min, max]的前四分位数和后四分位数
+        elif typ == 'interval':
             q1, q3 = np.percentile(matrix[:, i], [25, 75])
             matrix = interval_to_max(matrix, i, q1, q3)
 
